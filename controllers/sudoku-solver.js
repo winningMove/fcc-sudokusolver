@@ -56,7 +56,8 @@ class SudokuSolver {
     if (validationResultRest.error) return validationResultRest;
 
     const board = this.#getBoard(puzzleString);
-    const index = (coordinate.charCodeAt(0) - 65) * 9 + parseInt(coordinate[1]);
+    const index =
+      (coordinate.charCodeAt(0) - 65) * 9 + parseInt(coordinate[1]) - 1;
     const placementCheckResult = this.#checkPlacementOnBoard(
       board,
       index,
@@ -73,7 +74,7 @@ class SudokuSolver {
 
     const rowCheck = this.#checkRowPlacement(board, row, value);
     if (!rowCheck) conflict.push("row");
-    const colCheck = this.#checkColPlacement(board, row, value);
+    const colCheck = this.#checkColPlacement(board, col, value);
     if (!colCheck) conflict.push("column");
     const regionCheck = this.#checkRegionPlacement(board, row, col, value);
     if (!regionCheck) conflict.push("region");
