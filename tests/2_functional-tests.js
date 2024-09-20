@@ -86,7 +86,7 @@ suite("Functional Tests", () => {
         .send({ puzzle: samplePuzzle, coordinate: "A5", value: "2" })
         .end((err, res) => {
           assert.property(res.body, "valid");
-          assert.strictEqual(res.body.valid, true);
+          assert.isTrue(res.body.valid);
           done();
         });
     });

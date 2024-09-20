@@ -44,34 +44,34 @@ suite("Unit Tests", () => {
     test("handles a valid row placement", () => {
       const checked = solver.checkPlacementInString(samplePuzzle, "A5", "2");
       assert.property(checked, "valid");
-      assert.strictEqual(checked.valid, true);
+      assert.isTrue(checked.valid);
     });
     test("handles an invalid row placement", () => {
       const checked = solver.checkPlacementInString(samplePuzzle, "A5", "9");
       assert.property(checked, "valid");
-      assert.strictEqual(checked.valid, false);
+      assert.isFalse(checked.valid);
       assert.deepEqual(checked.conflict, ["row"]);
     });
     test("handles a valid column placement", () => {
       const checked = solver.checkPlacementInString(samplePuzzle, "A5", "2");
       assert.property(checked, "valid");
-      assert.strictEqual(checked.valid, true);
+      assert.isTrue(checked.valid);
     });
     test("handles an invalid column placement", () => {
       const checked = solver.checkPlacementInString(samplePuzzle, "A5", "6");
       assert.property(checked, "valid");
-      assert.strictEqual(checked.valid, false);
+      assert.isFalse(checked.valid);
       assert.deepEqual(checked.conflict, ["column"]);
     });
     test("handles a valid region placement", () => {
       const checked = solver.checkPlacementInString(samplePuzzle, "A5", "2");
       assert.property(checked, "valid");
-      assert.strictEqual(checked.valid, true);
+      assert.isTrue(checked.valid);
     });
     test("handles an invalid region placement", () => {
       const checked = solver.checkPlacementInString(samplePuzzle, "A5", "4");
       assert.property(checked, "valid");
-      assert.strictEqual(checked.valid, false);
+      assert.isFalse(checked.valid);
       assert.deepEqual(checked.conflict, ["region"]);
     });
     test("valid puzzle strings pass the solver", () => {
