@@ -58,6 +58,9 @@ class SudokuSolver {
     const board = this.#getBoard(puzzleString);
     const index =
       (coordinate.charCodeAt(0) - 65) * 9 + parseInt(coordinate[1]) - 1;
+
+    if (board[index] === value) return { valid: true }; // hack
+
     const placementCheckResult = this.#checkPlacementOnBoard(
       board,
       index,
